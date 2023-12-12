@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +8,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
 
     // Day 1
-    public void findOccurrenceOfInt(){
+    public void findOccurrenceOfInt() {
         System.out.println("Please enter numbers separated by space");
         String[] strArr = scanner.nextLine().split(" ");
 
@@ -25,15 +27,46 @@ public class Main {
     }
 
     // Day 2
-    public static void stripOutFromStr(){
+    public static void stripOutFromStr() {
         ArrayList<String> errorFullTexts = new ArrayList<>();
         ArrayList<String> errorMessageTexts = new ArrayList<>();
 
         //Add the text to the first spot, you can add as many as you would like
         errorFullTexts.add("ValidationError line 23 col 40:'Bad value ius-cors for attribute name on element meta: Keyword ius-cors is not registered.'");
 
-        for(String errorFullText : errorFullTexts){
-            errorMessageTexts.add(errorFullText.substring(errorFullText.indexOf(":'")+2, errorFullText.lastIndexOf(".'")));
+        for (String errorFullText : errorFullTexts) {
+            errorMessageTexts.add(errorFullText.substring(errorFullText.indexOf(":'") + 2, errorFullText.lastIndexOf(".'")));
         }
     }
+
+    // Day 3
+    public static void numberOfHouses() {
+        String[] houses = {"a", "b", "c", "d", "a", "b", "a", "a", "b", "c"};
+
+        Map<String, Integer> counts = new HashMap<>();
+
+        for (String house : houses) {
+            if (counts.containsKey(house)) {
+                counts.put(house, counts.get(house) + 1);
+            } else {
+                counts.put(house, 1);
+            }
+        }
+    }
+
+    public static void stringLoop(){
+        //There are multiple ways available
+
+        //Using For Each loop
+        String str = "Hello, World!";
+        for (char c : str.toCharArray()) {
+            // Process or print the character 'c'
+        }
+
+        //Using Java streams
+        str.chars().forEach(c -> {
+            // Process or print the character 'c'
+        });
+    }
+
 }
