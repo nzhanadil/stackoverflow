@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -68,5 +65,41 @@ public class Main {
             // Process or print the character 'c'
         });
     }
+
+    // day 4
+    public static void countOccurrenceOf3Words(){
+        Scanner scanner = new Scanner(System.in);
+        // Creating while loop to be able to loop, until we get word EXIT from user
+        OUTER:
+        while (true){
+            System.out.println("Please enter 3 words separated by space");
+            // This way we can get all 3 words once, and store inside a String array
+            String[] words = scanner.nextLine().split(" ");
+
+            // Creating Hashmap counter where will be storing occurrence of each word
+            HashMap<String, Integer> counter = new HashMap<>();
+
+            // Looping Through the words
+            for(String word : words){
+                word = word.toLowerCase();
+
+                // if One of the words is 'exit', we finish our program
+                if(word.equals("exit")){
+                    System.out.println("Finishing the Program!");
+                    break OUTER;
+                }
+                // if counter contains this word, we increase its occurrence by 1
+                if(counter.containsKey(word)){
+                    counter.put(word, counter.get(word)+1);
+                }
+                // if not, its just 1
+                else {
+                    counter.put(word, 1);
+                }
+            }
+            System.out.println(counter);
+        }
+    }
+
 
 }
