@@ -101,5 +101,18 @@ public class Main {
         }
     }
 
+    public static void day5() {
+        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 3, 5, 6));
+        ArrayList<Integer> b = new ArrayList<>(Arrays.asList(1, 2, 6));
+
+        int biggerSize = Math.max(a.size(), b.size());
+        int smallerSize = Math.min(a.size(), b.size());
+
+        for (int i = 0; i < biggerSize; i++) {
+            for (int j = 0; j < smallerSize; j++) {
+                // do something
+            }
+        }
+    }
 
 }
