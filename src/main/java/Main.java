@@ -115,4 +115,86 @@ public class Main {
         }
     }
 
+    public static void day6(){
+        String[] names = new String[] {"John", "Cecille", "Mark", "Judas", "Theresa"};
+        names = Arrays.copyOf(names, names.length+1);
+
+        System.out.println(Arrays.toString(names));
+    }
+
+    public static void day7(){
+        String[] names = new String[] {"John", "Cecille", "Mark", "Judas", "Theresa"};
+        /* - Arrays.copyOf() method takes two params
+           - 1st is the original array
+           - 2 is size for your new array */
+        String[] duplicate = Arrays.copyOf(names, names.length+1);
+    }
+
+    public static void day7_2(){
+        /*
+         // 'a', 'b', 'c', 'd
+        the strings have to be 4 characters long.
+        letters can repeat in the same string.
+        the characters 'a' and 'd' can't be in the same string.
+        the character 'b' ALWAYS has to be followed by 'a'.
+         */
+
+        ArrayList<String> result = new ArrayList<>();
+        String str = "";
+
+
+        if(str.length() == 4){
+            if(!(str.contains("a") && str.contains("b"))){
+                result.add(str);
+            }
+        }else{
+
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+//    public static void main(String[] args) {
+//        char[] chars = {'a', 'b', 'c', 'd'};
+//        generateCombinations(chars, "");
+//    }
+//
+//    public static int c = 0;
+
+//    private static void generateCombinations(char[] chars, String current) {
+//        c++;
+//        if (current.length() == 4) {
+//            // Check if 'a' and 'd' are not in the same string
+//            if (!(current.contains("a") && current.contains("d"))) {
+//                System.out.println(current);
+//            }
+//        } else {
+//            for (char ch : chars) {
+//                // 'b' always has to be followed by 'a'
+//                if (ch == 'b' && !current.contains("a")) {
+//                    continue;
+//                }
+//
+//                // Check if adding the current character violates the rules
+//                if (!(ch == 'a' && current.contains("b")) && !(ch == 'd' && current.contains("b"))) {
+//                    generateCombinations(chars, current + ch);
+//                }
+//            }
+//        }}
+
+
+
+    public static void main(String[] args) {
+        day6();
+    }
+
+
+
 }
