@@ -130,69 +130,69 @@ public class Main {
         String[] duplicate = Arrays.copyOf(names, names.length+1);
     }
 
-    public static void day7_2(){
-        /*
-         // 'a', 'b', 'c', 'd
-        the strings have to be 4 characters long.
-        letters can repeat in the same string.
-        the characters 'a' and 'd' can't be in the same string.
-        the character 'b' ALWAYS has to be followed by 'a'.
-         */
+    public static String day8(String str){
+        char[] arr = str.toCharArray();
 
-        ArrayList<String> result = new ArrayList<>();
-        String str = "";
-
-
-        if(str.length() == 4){
-            if(!(str.contains("a") && str.contains("b"))){
-                result.add(str);
-            }
-        }else{
-
+        for(int i = 0; i< arr.length/2; i++){
+            char temp = arr[i];
+            arr[i] = arr[arr.length-1-i];
+            arr[arr.length-1-i] = temp;
         }
 
+        return new String(arr);
+    }
 
+    public static void dat8_2(){
+        Scanner scnr = new Scanner(System.in);
+        final int MAX_INPUTS = 10;
+        int[] numbers = new int[MAX_INPUTS];
+        int count = 0;
+        int input;
 
+        // Reads user inputs until they enter negative integer
+        while (true) {
+            System.out.println("please enter a number "+(count+1)+" number");
+            input = scnr.nextInt();
 
+            if (input < 0) {
+                break;
+            }
 
+            // checks if count is less than max inputs, adds only in case its less
+            if(count<MAX_INPUTS){
+                numbers[count] = input;
+            }
+            count++;
+        }
+
+        // Check if no data entered
+        if (count == 0) {
+            System.out.println("No data entered.");
+            return;
+        }
+
+        // Calculate the median
+        double median;
+
+        if (count % 2 == 0) {
+            int middle1 = numbers[count / 2 - 1];
+            int middle2 = numbers[count / 2];
+            median = (double) (middle1 + middle2) / 2;
+        } else {
+            median = numbers[count / 2];
+        }
+
+        // Display the result
+        if (count > MAX_INPUTS) {
+            System.out.println("Data items past number 10 ignored");
+        }
+        System.out.println("Median: " + median);
     }
 
 
 
-
-
-//    public static void main(String[] args) {
-//        char[] chars = {'a', 'b', 'c', 'd'};
-//        generateCombinations(chars, "");
-//    }
-//
-//    public static int c = 0;
-
-//    private static void generateCombinations(char[] chars, String current) {
-//        c++;
-//        if (current.length() == 4) {
-//            // Check if 'a' and 'd' are not in the same string
-//            if (!(current.contains("a") && current.contains("d"))) {
-//                System.out.println(current);
-//            }
-//        } else {
-//            for (char ch : chars) {
-//                // 'b' always has to be followed by 'a'
-//                if (ch == 'b' && !current.contains("a")) {
-//                    continue;
-//                }
-//
-//                // Check if adding the current character violates the rules
-//                if (!(ch == 'a' && current.contains("b")) && !(ch == 'd' && current.contains("b"))) {
-//                    generateCombinations(chars, current + ch);
-//                }
-//            }
-//        }}
-
-
-
     public static void main(String[] args) {
-        day6();
+        dat8_2();
     }
 
 
