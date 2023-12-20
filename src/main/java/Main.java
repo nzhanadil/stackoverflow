@@ -1,3 +1,5 @@
+import socket.Person;
+
 import java.util.*;
 
 public class Main {
@@ -189,12 +191,28 @@ public class Main {
         System.out.println("Median: " + median);
     }
 
+    public static void day9(){
+        ArrayList<Person> personList = new ArrayList<>();
 
+        personList.add(new Person("3","Bob", 28));
+        personList.add(new Person("-1","Bfb", 28));
+        personList.add(new Person("1","John", 25));
+        personList.add(new Person("2","Alice", 30));
 
-    public static void main(String[] args) {
-        dat8_2();
+        // Sorting based on ID
+        Collections.sort(personList, Comparator.comparing(Person::getID));
+
+        for (Person person : personList) {
+            System.out.println("ID: " + person.getID() +
+                    ", Name: " + person.getName() +
+                    ", Age: " + person.getAge());
+        }
     }
 
 
 
+    public static void main(String[] args) {
+        day9();
+
+    }
 }
